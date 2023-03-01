@@ -1,15 +1,32 @@
-import { useState } from 'react';
-import { Modal, Table } from './components/shared';
+import { useState } from "react";
+import { Modal, Table, Tabs } from "./components/shared";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-
+  const CustomerTabs = {
+    CUSTOMER: "Customers",
+    DRIVER: "Drivers",
+  };
   const toggleShowModal = () => setShowModal((prev) => !prev);
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center bg-emerald-300">
+    <div className="h-screen flex flex-col justify-center items-center bg-gray-50">
       <div className="w-1/2">
         <Table />
+      </div>
+      <div className="mx-auto max-w-7xl  sm:px-6 md:px-5 md:py-5">
+        <div>
+          <Tabs tabs={CustomerTabs} defaultActive={CustomerTabs.DRIVER}>
+            <div name={CustomerTabs.CUSTOMER}>
+              <h1>First Tab</h1>
+              <p>First Tab Content</p>
+            </div>
+            <div name={CustomerTabs.DRIVER}>
+              <h1>Second Tab</h1>
+              <p>First Tab Content</p>
+            </div>
+          </Tabs>
+        </div>
       </div>
       <div className="flex items-center h-screen justify-center">
         <button
@@ -23,7 +40,7 @@ function App() {
       <Modal
         show={showModal}
         closeHandler={toggleShowModal}
-        containerClassName="w-2/4 p-5"
+        containerClassName="w-1/2 p-5"
         closeButton={true}
       >
         <h1 className="font-semibold text-xl">Title</h1>
