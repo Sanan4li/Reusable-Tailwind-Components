@@ -1,11 +1,14 @@
-import { useState } from "react";
-import { Modal, Table, Tabs } from "./components/shared";
+import { useState } from 'react';
+import { Modal, Table, Tabs } from './components/shared';
+import PrintDocument from './components/shared/PrintDoc';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
   const CustomerTabs = {
-    CUSTOMER: "Customers",
-    DRIVER: "Drivers",
+    CUSTOMER: 'Customers',
+    DRIVER: 'Drivers',
+    ORDERS: 'Orders',
+    BOOKING: 'Booking',
   };
   const toggleShowModal = () => setShowModal((prev) => !prev);
 
@@ -23,10 +26,23 @@ function App() {
             </div>
             <div name={CustomerTabs.DRIVER}>
               <h1>Second Tab</h1>
-              <p>First Tab Content</p>
+              <p>Second Tab Content</p>
+            </div>
+            <div name={CustomerTabs.ORDERS}>
+              <h1>Third Tab</h1>
+              <p>Third Tab Content</p>
+            </div>
+            <div name={CustomerTabs.BOOKING}>
+              <h1>Forth Tab</h1>
+              <p>Forth Tab Content</p>
             </div>
           </Tabs>
         </div>
+      </div>
+      <div>
+        <PrintDocument>
+          <p className="bg-red-400">WHATEVER</p>
+        </PrintDocument>
       </div>
       <div className="flex items-center h-screen justify-center">
         <button

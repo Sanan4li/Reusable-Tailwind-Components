@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const Tabs = ({ tabs, defaultActive, children }) => {
   const [activeTab, setActiveTab] = useState(null);
   useEffect(() => {
     setActiveTab(defaultActive);
   }, [defaultActive]);
+
   const changeActiveTab = (e) => {
     setActiveTab(e.target.name);
   };
@@ -18,8 +19,8 @@ const Tabs = ({ tabs, defaultActive, children }) => {
               name={tab}
               className={`flex flex-shrink-0 items-center border-b-4 px-5 py-2  hover:bg-blue-100 ${
                 activeTab === tab
-                  ? "border-primary bg-blue-100 font-semibold"
-                  : "border-gray-300"
+                  ? 'border-primary bg-blue-100 font-semibold'
+                  : 'border-gray-300'
               }`}
               onClick={changeActiveTab}
             >
