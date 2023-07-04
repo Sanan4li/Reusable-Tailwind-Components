@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge';
+
 const Modal = ({
   show,
   closeHandler,
@@ -14,26 +16,29 @@ const Modal = ({
         onClick={closeHandler}
       >
         <div
-          className={`relative mx-auto w-auto rounded-md bg-white p-3 min-w-[300px] shadow-lg ${containerClassName}`}
+          className={twMerge(
+            `relative mx-auto rounded-md bg-white p-10 w-1/2 shadow-lg`,
+            containerClassName
+          )}
           onClick={(e) => e.stopPropagation()}
         >
           {closeButton && (
             <span
-              className="absolute right-2 top-3 cursor-pointer"
+              className='absolute right-2 top-3 cursor-pointer'
               onClick={closeHandler}
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
                 strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
+                stroke='currentColor'
+                className='w-6 h-6'
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  d='M6 18L18 6M6 6l12 12'
                 />
               </svg>
             </span>
